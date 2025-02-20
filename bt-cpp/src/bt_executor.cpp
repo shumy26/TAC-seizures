@@ -2,6 +2,8 @@
 #include "publisher_node.cpp"
 #include "subscriber_node.cpp"
 #include "gotopose_node.cpp" // Include the GoToPose header file
+#include "calculate_tcc.cpp"
+#include "checkbattery_node.cpp"
 
 BTExecutor::BTExecutor(const std::string &node_name): rclcpp::Node(node_name) {
     this->declare_parameter("bt", rclcpp::PARAMETER_STRING);
@@ -42,7 +44,7 @@ void BTExecutor::update_behavior_tree()
 }
 
 void BTExecutor::register_nav2_plugins(){
-    const std::string plugins_path = ament_index_cpp::get_package_share_directory("rome_bt") + "/behavior_trees/plugins.txt";
+    const std::string plugins_path = ament_index_cpp::get_package_share_directory("bt-cpp") + "/behavior_trees/plugins.txt";
     std::ifstream plugin_file;
     plugin_file.open(plugins_path);
 
@@ -89,6 +91,11 @@ int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
     auto executor = std::make_shared<BTExecutor>("bt_executor");
+
+    // Set the 'bt' parameter before calling setup
+    executor->set_parameter(rclcpp::Parameter("bt", "./behavior_trees/bt.xml"));
+    executor->set_parameter(rclcpp::Parameter("tick_rate_ms", 1000));
+
     executor->setup();
     rclcpp::shutdown();
     return 0;
