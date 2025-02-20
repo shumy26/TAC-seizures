@@ -1,8 +1,7 @@
 #include "bt_executor.h"
 #include "publisher_node.cpp"
 #include "subscriber_node.cpp"
-#include "gotopose_node.cpp"
-
+#include "gotopose_node.cpp" // Include the GoToPose header file
 
 BTExecutor::BTExecutor(const std::string &node_name): rclcpp::Node(node_name) {
     this->declare_parameter("bt", rclcpp::PARAMETER_STRING);
@@ -40,7 +39,6 @@ void BTExecutor::update_behavior_tree()
         RCLCPP_INFO(get_logger(), "BT Ended with SUCCESS");
         halt_behavior_tree();
     }
-
 }
 
 void BTExecutor::register_nav2_plugins(){
@@ -82,18 +80,16 @@ void BTExecutor::create_behavior_tree(){
     RCLCPP_INFO(get_logger(), "Registering Nav2 Plugins");
     register_nav2_plugins();
 
-
     // Creating tree from xml
     RCLCPP_INFO(get_logger(), "Creating Tree %s", tree_xml.c_str());
     tree_ = factory_.createTreeFromFile(tree_xml);
 }
 
-
 int main(int argc, char **argv)
 {
-  rclcpp::init(argc, argv);
-  auto node = std::make_shared<BTExecutor>("bt_executor");
-  node->setup();
-
-  return 0;
+    rclcpp::init(argc, argv);
+    auto executor = std::make_shared<BTExecutor>("bt_executor");
+    executor->setup();
+    rclcpp::shutdown();
+    return 0;
 }
