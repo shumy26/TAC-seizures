@@ -6,7 +6,8 @@
                 success_count="-1">
         <Sequence name="MainLoop">
           <Subscriber name="WaitingCall"
-                      input="{call}"/>
+                      message="{call}"
+                      wait_duration_sec="{duration}"/>
           <CalculateTTC ttc="{ttc}"/>
           <Fallback>
             <Sequence name="AssistPatient">
@@ -25,7 +26,8 @@
               </Sequence>
             </Sequence>
             <Publisher name="AlertNurse"
-                       output="{alert}"/>
+                       message="{alert}"
+                       number="{number}"/>
           </Fallback>
         </Sequence>
         <CheckBattery over10percent="{has_battery}"/>
@@ -33,7 +35,8 @@
       <Sequence>
         <GoToPose movement="{nearest_checkpoint}"/>
         <Publisher name="AlertManager"
-                   output="{alert}"/>
+                   message="{alert}"
+                   number="{number}"/>
       </Sequence>
     </Fallback>
   </BehaviorTree>
@@ -69,11 +72,13 @@
     </Action>
     <Action ID="Publisher"
             editable="true">
-      <output_port name="output"/>
+      <input_port name="message"/>
+      <input_port name="number"/>
     </Action>
     <Action ID="Subscriber"
             editable="true">
-      <input_port name="input"/>
+      <output_port name="message"/>
+      <input_port name="wait_duration_sec"/>
     </Action>
     <Action ID="TestSequence"
             editable="true">
