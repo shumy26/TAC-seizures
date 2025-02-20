@@ -1,0 +1,575 @@
+{
+    "0": {
+        "name": "ROOT",
+        "type": "task",
+        "parent": "-1",
+        "agents": [
+            "r1",
+            "r3",
+            "r2",
+            "r4"
+        ],
+        "children": [
+            "1"
+        ]
+    },
+    "1": {
+        "name": "ROOT_M",
+        "type": "method",
+        "parent": "0",
+        "agents": [
+            "r1",
+            "r3",
+            "r2",
+            "r4"
+        ],
+        "children": [
+            "2",
+            "5",
+            "8",
+            "11",
+            "14",
+            "17",
+            "20",
+            "23",
+            "26",
+            "29",
+            "32",
+            "36",
+            "39",
+            "43"
+        ]
+    },
+    "2": {
+        "name": "EnterRoom",
+        "type": "task",
+        "parent": "1",
+        "agents": [
+            "r3"
+        ],
+        "children": [
+            "3"
+        ]
+    },
+    "3": {
+        "name": "room-enter",
+        "type": "method",
+        "parent": "2",
+        "agents": [
+            "r3",
+            "RoomB"
+        ],
+        "children": [
+            "4"
+        ]
+    },
+    "4": {
+        "name": "enter-room",
+        "type": "action",
+        "parent": "3",
+        "locations": [
+            "RoomB"
+        ],
+        "agents": [
+            "r3",
+            "RoomB"
+        ],
+        "children": ""
+    },
+    "5": {
+        "name": "FindEquipment",
+        "type": "task",
+        "parent": "1",
+        "agents": [
+            "r3"
+        ],
+        "children": [
+            "6"
+        ]
+    },
+    "6": {
+        "name": "equipment-find",
+        "type": "method",
+        "parent": "5",
+        "agents": [
+            "r3",
+            "StorageRoom"
+        ],
+        "children": [
+            "7"
+        ]
+    },
+    "7": {
+        "name": "find-equipment",
+        "type": "action",
+        "parent": "6",
+        "locations": [
+            "StorageRoom"
+        ],
+        "agents": [
+            "r3",
+            "StorageRoom"
+        ],
+        "children": ""
+    },
+    "8": {
+        "name": "EnterRoom",
+        "type": "task",
+        "parent": "1",
+        "agents": [
+            "r3"
+        ],
+        "children": [
+            "9"
+        ]
+    },
+    "9": {
+        "name": "room-enter",
+        "type": "method",
+        "parent": "8",
+        "agents": [
+            "r3",
+            "RoomB"
+        ],
+        "children": [
+            "10"
+        ]
+    },
+    "10": {
+        "name": "enter-room",
+        "type": "action",
+        "parent": "9",
+        "locations": [
+            "RoomB"
+        ],
+        "agents": [
+            "r3",
+            "RoomB"
+        ],
+        "children": ""
+    },
+    "11": {
+        "name": "EnterRoom",
+        "type": "task",
+        "parent": "1",
+        "agents": [
+            "r1"
+        ],
+        "children": [
+            "12"
+        ]
+    },
+    "12": {
+        "name": "room-enter",
+        "type": "method",
+        "parent": "11",
+        "agents": [
+            "r1",
+            "RoomA"
+        ],
+        "children": [
+            "13"
+        ]
+    },
+    "13": {
+        "name": "enter-room",
+        "type": "action",
+        "parent": "12",
+        "locations": [
+            "RoomA"
+        ],
+        "agents": [
+            "r1",
+            "RoomA"
+        ],
+        "children": ""
+    },
+    "14": {
+        "name": "ObservePatient",
+        "type": "task",
+        "parent": "1",
+        "agents": [
+            "r3"
+        ],
+        "children": [
+            "15"
+        ]
+    },
+    "15": {
+        "name": "patient-observation",
+        "type": "method",
+        "parent": "14",
+        "agents": [
+            "r3",
+            "RoomB"
+        ],
+        "children": [
+            "16"
+        ]
+    },
+    "16": {
+        "name": "observe-patient",
+        "type": "action",
+        "parent": "15",
+        "locations": [
+            "RoomB"
+        ],
+        "agents": [
+            "r3",
+            "RoomB"
+        ],
+        "children": ""
+    },
+    "17": {
+        "name": "InteractWithPatient",
+        "type": "task",
+        "parent": "1",
+        "agents": [
+            "r3"
+        ],
+        "children": [
+            "18"
+        ]
+    },
+    "18": {
+        "name": "patient-interaction",
+        "type": "method",
+        "parent": "17",
+        "agents": [
+            "r3",
+            "RoomB"
+        ],
+        "children": [
+            "19"
+        ]
+    },
+    "19": {
+        "name": "interact-with-patient",
+        "type": "action",
+        "parent": "18",
+        "locations": [
+            "RoomB"
+        ],
+        "agents": [
+            "r3",
+            "RoomB"
+        ],
+        "children": ""
+    },
+    "20": {
+        "name": "FindEquipment",
+        "type": "task",
+        "parent": "1",
+        "agents": [
+            "r1"
+        ],
+        "children": [
+            "21"
+        ]
+    },
+    "21": {
+        "name": "equipment-find",
+        "type": "method",
+        "parent": "20",
+        "agents": [
+            "r1",
+            "StorageRoom"
+        ],
+        "children": [
+            "22"
+        ]
+    },
+    "22": {
+        "name": "find-equipment",
+        "type": "action",
+        "parent": "21",
+        "locations": [
+            "StorageRoom"
+        ],
+        "agents": [
+            "r1",
+            "StorageRoom"
+        ],
+        "children": ""
+    },
+    "23": {
+        "name": "EnterRoom",
+        "type": "task",
+        "parent": "1",
+        "agents": [
+            "r1"
+        ],
+        "children": [
+            "24"
+        ]
+    },
+    "24": {
+        "name": "room-enter",
+        "type": "method",
+        "parent": "23",
+        "agents": [
+            "r1",
+            "RoomA"
+        ],
+        "children": [
+            "25"
+        ]
+    },
+    "25": {
+        "name": "enter-room",
+        "type": "action",
+        "parent": "24",
+        "locations": [
+            "RoomA"
+        ],
+        "agents": [
+            "r1",
+            "RoomA"
+        ],
+        "children": ""
+    },
+    "26": {
+        "name": "ObservePatient",
+        "type": "task",
+        "parent": "1",
+        "agents": [
+            "r1"
+        ],
+        "children": [
+            "27"
+        ]
+    },
+    "27": {
+        "name": "patient-observation",
+        "type": "method",
+        "parent": "26",
+        "agents": [
+            "r1",
+            "RoomA"
+        ],
+        "children": [
+            "28"
+        ]
+    },
+    "28": {
+        "name": "observe-patient",
+        "type": "action",
+        "parent": "27",
+        "locations": [
+            "RoomA"
+        ],
+        "agents": [
+            "r1",
+            "RoomA"
+        ],
+        "children": ""
+    },
+    "29": {
+        "name": "InteractWithPatient",
+        "type": "task",
+        "parent": "1",
+        "agents": [
+            "r1"
+        ],
+        "children": [
+            "30"
+        ]
+    },
+    "30": {
+        "name": "patient-interaction",
+        "type": "method",
+        "parent": "29",
+        "agents": [
+            "r1",
+            "RoomA"
+        ],
+        "children": [
+            "31"
+        ]
+    },
+    "31": {
+        "name": "interact-with-patient",
+        "type": "action",
+        "parent": "30",
+        "locations": [
+            "RoomA"
+        ],
+        "agents": [
+            "r1",
+            "RoomA"
+        ],
+        "children": ""
+    },
+    "32": {
+        "name": "ApplyTestSequence",
+        "type": "task",
+        "parent": "1",
+        "agents": [
+            "r1"
+        ],
+        "children": [
+            "33"
+        ]
+    },
+    "33": {
+        "name": "test-sequence-application",
+        "type": "method",
+        "parent": "32",
+        "agents": [
+            "r1",
+            "RoomA"
+        ],
+        "children": [
+            "34",
+            "35"
+        ]
+    },
+    "34": {
+        "name": "apply-test-sequence",
+        "type": "action",
+        "parent": "33",
+        "locations": [
+            "RoomA"
+        ],
+        "agents": [
+            "r1",
+            "RoomA"
+        ],
+        "children": ""
+    },
+    "35": {
+        "name": "alert-nurses",
+        "type": "action",
+        "parent": "33",
+        "locations": [
+            "RoomA"
+        ],
+        "agents": [
+            "r1",
+            "RoomA"
+        ],
+        "children": ""
+    },
+    "36": {
+        "name": "AlertManager",
+        "type": "task",
+        "parent": "1",
+        "agents": [
+            "r2"
+        ],
+        "children": [
+            "37"
+        ]
+    },
+    "37": {
+        "name": "manager-alert",
+        "type": "method",
+        "parent": "36",
+        "agents": [
+            "r2",
+            "RoomA"
+        ],
+        "children": [
+            "38"
+        ]
+    },
+    "38": {
+        "name": "alert-manager",
+        "type": "action",
+        "parent": "37",
+        "locations": [
+            "RoomA"
+        ],
+        "agents": [
+            "r2",
+            "RoomA"
+        ],
+        "children": ""
+    },
+    "39": {
+        "name": "ApplyTestSequence",
+        "type": "task",
+        "parent": "1",
+        "agents": [
+            "r3"
+        ],
+        "children": [
+            "40"
+        ]
+    },
+    "40": {
+        "name": "test-sequence-application",
+        "type": "method",
+        "parent": "39",
+        "agents": [
+            "r3",
+            "RoomB"
+        ],
+        "children": [
+            "41",
+            "42"
+        ]
+    },
+    "41": {
+        "name": "apply-test-sequence",
+        "type": "action",
+        "parent": "40",
+        "locations": [
+            "RoomB"
+        ],
+        "agents": [
+            "r3",
+            "RoomB"
+        ],
+        "children": ""
+    },
+    "42": {
+        "name": "alert-nurses",
+        "type": "action",
+        "parent": "40",
+        "locations": [
+            "RoomB"
+        ],
+        "agents": [
+            "r3",
+            "RoomB"
+        ],
+        "children": ""
+    },
+    "43": {
+        "name": "AlertManager",
+        "type": "task",
+        "parent": "1",
+        "agents": [
+            "r4"
+        ],
+        "children": [
+            "44"
+        ]
+    },
+    "44": {
+        "name": "manager-alert",
+        "type": "method",
+        "parent": "43",
+        "agents": [
+            "r4",
+            "RoomB"
+        ],
+        "children": [
+            "45"
+        ]
+    },
+    "45": {
+        "name": "alert-manager",
+        "type": "action",
+        "parent": "44",
+        "locations": [
+            "RoomB"
+        ],
+        "agents": [
+            "r4",
+            "RoomB"
+        ],
+        "children": ""
+    }
+}

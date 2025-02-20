@@ -1,0 +1,4 @@
+{
+    "gmParser.hddlPath": "hddl/SeizureRecognition.hddl",
+    "gmParser.configPath": "configuration/configuration.json"
+}
