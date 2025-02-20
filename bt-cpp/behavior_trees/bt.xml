@@ -2,8 +2,8 @@
 <root BTCPP_format="4">
   <BehaviorTree ID="Untitled">
     <Fallback>
-      <Parallel failure_threshold="1"
-                success_threshold="-1">
+      <Parallel failure_count="1"
+                success_count="-1">
         <Sequence name="MainLoop">
           <Subscriber name="WaitingCall"
                       message="{call}"
