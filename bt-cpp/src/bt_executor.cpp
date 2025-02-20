@@ -84,7 +84,7 @@ void BTExecutor::create_behavior_tree(){
     factory_.registerBuilder<CalculateTTC>("CalculateTTC", builder);
 
     builder = [=](const std::string &name, const BT::NodeConfiguration &config){
-        return std::make_unique<CheckBattery>(name, config);
+        return std::make_unique<CheckBattery>(name, config, shared_from_this());
     };
     factory_.registerBuilder<CheckBattery>("CheckBattery", builder);
 

@@ -37,6 +37,10 @@ public:
         return is_over_10 ? BT::NodeStatus::RUNNING : BT::NodeStatus::FAILURE;
     }
 
+    void onHalted() override {
+        RCLCPP_INFO(node_->get_logger(), "CheckBattery node halted.");
+    }
+
 private:
     rclcpp::Node::SharedPtr node_;
     rclcpp::Subscription<sensor_msgs::msg::BatteryState>::SharedPtr battery_sub_;
