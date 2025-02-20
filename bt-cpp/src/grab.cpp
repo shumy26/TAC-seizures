@@ -8,7 +8,7 @@ public:
 
   BT::NodeStatus tick() override
   {
-    std::cout << "ApproachObject: " << this->name() << std::endl;
+    std::cout << "Grabbed Equipment" << std::endl;
     return BT::NodeStatus::SUCCESS;
   }
 };
