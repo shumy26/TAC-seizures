@@ -2,7 +2,7 @@
 #include "publisher_node.cpp"
 #include "subscriber_node.cpp"
 #include "gotopose_node.cpp" // Include the GoToPose header file
-#include "calculate_tcc.cpp"
+#include "calculatetcc_node.cpp"
 #include "checkbattery_node.cpp"
 
 BTExecutor::BTExecutor(const std::string &node_name): rclcpp::Node(node_name) {
@@ -44,7 +44,7 @@ void BTExecutor::update_behavior_tree()
 }
 
 void BTExecutor::register_nav2_plugins(){
-    const std::string plugins_path = ament_index_cpp::get_package_share_directory("bt-cpp") + "/behavior_trees/plugins.txt";
+    const std::string plugins_path = ament_index_cpp::get_package_share_directory("./") + "/behavior_trees/plugins.txt";
     std::ifstream plugin_file;
     plugin_file.open(plugins_path);
 
@@ -77,6 +77,11 @@ void BTExecutor::create_behavior_tree(){
         return std::make_unique<GoToPose>(name, config, shared_from_this());
     };
     factory_.registerBuilder<GoToPose>("GoToPose", builder);
+
+    builder = [=](const std::string &name, const BT::NodeConfiguration &config){
+        return std::make_unique<CalculateTTC>(name, config);
+    };
+    factory_.registerBuilder<CalculateTTC>("CalculateTTC", builder);
 
     // Registering nav2 nodes
     RCLCPP_INFO(get_logger(), "Registering Nav2 Plugins");
