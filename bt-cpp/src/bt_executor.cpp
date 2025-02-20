@@ -83,6 +83,11 @@ void BTExecutor::create_behavior_tree(){
     };
     factory_.registerBuilder<CalculateTTC>("CalculateTTC", builder);
 
+    builder = [=](const std::string &name, const BT::NodeConfiguration &config){
+        return std::make_unique<CheckBattery>(name, config);
+    };
+    factory_.registerBuilder<CheckBattery>("CheckBattery", builder);
+
     // Registering nav2 nodes
     RCLCPP_INFO(get_logger(), "Registering Nav2 Plugins");
     register_nav2_plugins();
