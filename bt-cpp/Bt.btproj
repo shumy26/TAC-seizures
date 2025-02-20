@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4" project_name="Project">
+    <include path="bt.xml"/>
+    <!-- Description of Node Models (used by Groot) -->
+    <TreeNodesModel>
+        <Action ID="CalculateTTC" editable="true"/>
+        <Action ID="CheckBattery" editable="true"/>
+        <Action ID="GoToPose" editable="true">
+            <input_port name="x"/>
+            <input_port name="y"/>
+            <input_port name="yaw"/>
+        </Action>
+        <Action ID="Grab" editable="true">
+            <output_port name="movement"/>
+        </Action>
+        <Condition ID="HasAllItems" editable="true"/>
+        <Action ID="Interaction" editable="true"/>
+        <Action ID="Publisher" editable="true">
+            <input_port name="message"/>
+            <input_port name="number"/>
+        </Action>
+        <Action ID="Subscriber" editable="true">
+            <output_port name="message"/>
+            <input_port name="wait_duration_sec"/>
+        </Action>
+        <Action ID="TestSequence" editable="true"/>
+    </TreeNodesModel>
+</root>
