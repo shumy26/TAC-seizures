@@ -15,11 +15,11 @@
                 <HasAllItems status="{items}"/>
                 <Sequence name="GrabEquipmentNeeded">
                   <CalculateTTC ttc="{ttc}"/>
-                  <GoToPose movement="{storage_room}"/>
+                  <GoToPose x="{x}" y="{y}" yaw="{yaw}"/>
                   <Grab movement="{equipment}"/>
                 </Sequence>
               </Fallback>
-              <GoToPose movement="{patient_room}"/>
+              <GoToPose x="{x}" y="{y}" yaw="{yaw}"/>
               <Sequence>
                 <Interaction message="{test}"/>
                 <TestSequence test="{test}"/>
@@ -33,7 +33,7 @@
         <CheckBattery over10percent="{has_battery}"/>
       </Parallel>
       <Sequence>
-        <GoToPose movement="{nearest_checkpoint}"/>
+        <GoToPose x="{x}" y="{y}" yaw="{yaw}"/>
         <Publisher name="AlertManager"
                    message="{alert}"
                    number="{number}"/>
@@ -55,7 +55,9 @@
     </Action>
     <Action ID="GoToPose"
             editable="true">
-      <output_port name="movement"/>
+      <input_port name="x"/>
+      <input_port name="y"/>
+      <input_port name="yaw"/>
     </Action>
     <Action ID="Grab"
             editable="true">
