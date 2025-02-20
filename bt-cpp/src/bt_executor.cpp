@@ -4,6 +4,10 @@
 #include "gotopose_node.cpp" // Include the GoToPose header file
 #include "calculatetcc_node.cpp"
 #include "checkbattery_node.cpp"
+#include "grab.cpp"
+#include "interaction_node.cpp"
+#include "has_all_items_node.cpp"
+#include "test_sequence.cpp"
 
 BTExecutor::BTExecutor(const std::string &node_name): rclcpp::Node(node_name) {
     this->declare_parameter("bt", rclcpp::PARAMETER_STRING);
@@ -87,6 +91,26 @@ void BTExecutor::create_behavior_tree(){
         return std::make_unique<CheckBattery>(name, config, shared_from_this());
     };
     factory_.registerBuilder<CheckBattery>("CheckBattery", builder);
+
+    builder = [=](const std::string &name, const BT::NodeConfiguration &config){
+        return std::make_unique<Grab>(name, config);
+    };
+    factory_.registerBuilder<Grab>("Grab", builder);
+
+    builder = [=](const std::string &name, const BT::NodeConfiguration &config){
+        return std::make_unique<Interaction>(name, config);
+    };
+    factory_.registerBuilder<Interaction>("Interaction", builder);
+
+    builder = [=](const std::string &name, const BT::NodeConfiguration &config){
+        return std::make_unique<HasAllItems>(name, config);
+    };
+    factory_.registerBuilder<HasAllItems>("HasAllItems", builder);
+
+    builder = [=](const std::string &name, const BT::NodeConfiguration &config){
+        return std::make_unique<TestSequence>(name, config);
+    };
+    factory_.registerBuilder<TestSequence>("TestSequence", builder);
 
     // Registering nav2 nodes
     RCLCPP_INFO(get_logger(), "Registering Nav2 Plugins");
