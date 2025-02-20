@@ -1,0 +1,112 @@
+Texto original
+
+The robot is located in the patients room. It will observe the patient and start interacting, if the patient seems to be non responsive or presents repetitive movements. Further triggers for interaction are provided by sensors and seizures detection software from EEG. When triggered, a robot should check attention and responsiveness of a patient. The robot must start the task within 30-60 seconds. In case of not being able to do so, a nurse should be immediately alerted. In order to be able to perform this task on very short notice, the robot should be within the patient room or very close by. At the time, the task is assigned, the robot should check if all the necessary equipment to collect the required tasks are available in the room, if not, the robot should go to the storage room and collect the equipment (sensors). Battery recharge routines must not be triggered during operating the task. If the robot achieves less than 10% of battery, it should save checkpoints for every atomic action, log it, and alert the manager of the site. The goal is to improve diagnostic value of seizure reporting by recognising seizures and ictal testing. For diagnostic purposes patient with epilepsy may undergo long term (24/7) video EEG monitoring for several days in hospital. Aim is to record seizures simultaneously on EEG and video. For the reporting of such seizure recordings it is important to know, if the patient is aware and responding, or if any of these capabilities is impaired. Therefore, applying a standardized test sequence of verbal commands and showing pictures to the patient as well as recording and interpreting the responses is crucial. A significant increase of heart rate is present in approx. 80% of focal epileptic seizures. At the same time, EEG changes occur and the patient's behaviour changes (e.g behavioural freezing, repetitive stereotyped movements, or non responsiveness). The robot will follow and observe the patient and will assess data provided by the Video-EEG analysis/seizure detection software or sensors (e.g., movement pattern detection and/or heart rate). If a heart rate increase occurs, the seizure detection software alerts, or the patients behavior changes, the robot will start to interact with the patient. Initially, it will ask if the patient is well or experiences a seizure. If there is no response or the patient confirms a seizure, the robot will start to apply the test sequence to the patient and alert the nurses to attend. The task is completed when a stop signal is received or a certain amount of time (specified beforehand) has passed. 
+
+Behavior Tree Nodes for Groot2
+Root Node
+
+Sequence
+Patient Observation and Interaction Triggering
+
+Selector
+Sequence
+Monitor Patient Behavior (non-responsiveness, repetitive movements)
+Monitor Sensors and EEG Seizure Detection Software
+Interaction Trigger Detected
+Sequence
+Wait 30-60 Seconds
+Initiate Interaction
+Alert Nurse (if unable to start task within 30-60 seconds)
+Equipment Check and Collection
+
+Sequence
+Check Equipment Availability in Patient Room
+Selector
+Equipment Available
+Sequence
+Go to Storage Room
+Retrieve Equipment
+Battery Management
+
+Sequence
+Prevent Battery Recharge Routines
+Selector
+Battery Level Above 10%
+Sequence
+Save Checkpoints
+Log Actions
+Alert Site Manager
+Seizure Reporting and Diagnostic Improvement
+
+Sequence
+Follow and Observe Patient
+Assess Data from Video-EEG Analysis and Sensors
+Selector
+Heart Rate Increase Detected
+Seizure Alert from Software
+Behavioral Changes Detected
+Sequence
+Ask Patient if Well or Experiencing Seizure
+Selector
+Patient Confirms Seizure
+No Response from Patient
+Apply Standardized Test Sequence (Verbal Commands, Show Pictures)
+Record and Interpret Responses
+Alert Nurses
+Selector
+Stop Signal Received
+Specified Time Passed
+Behavior Tree Nodes for BTCPP
+Root Node
+
+Sequence
+Patient Monitoring and Interaction
+
+Selector
+Sequence
+Monitor Patient Behavior (non-responsiveness, repetitive movements)
+Monitor Sensors and EEG Seizure Detection Software
+Interaction Trigger Detected
+Sequence
+Wait 30-60 Seconds
+Initiate Interaction
+Alert Nurse (if unable to start task within 30-60 seconds)
+Equipment Verification and Retrieval
+
+Sequence
+Check Equipment Availability in Patient Room
+Selector
+Equipment Available
+Sequence
+Go to Storage Room
+Retrieve Equipment
+Battery Management Protocol
+
+Sequence
+Prevent Battery Recharge Routines
+Selector
+Battery Level Above 10%
+Sequence
+Save Checkpoints
+Log Actions
+Alert Site Manager
+Seizure Detection and Reporting
+
+Sequence
+Follow and Observe Patient
+Assess Data from Video-EEG Analysis and Sensors
+Selector
+Heart Rate Increase Detected
+Seizure Alert from Software
+Behavioral Changes Detected
+Sequence
+Ask Patient if Well or Experiencing Seizure
+Selector
+Patient Confirms Seizure
+No Response from Patient
+Apply Standardized Test Sequence (Verbal Commands, Show Pictures)
+Record and Interpret Responses
+Alert Nurses
+Selector
+Stop Signal Received
+Specified Time Passed
