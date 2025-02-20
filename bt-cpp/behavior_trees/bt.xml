@@ -18,7 +18,7 @@
                   <GoToPose x="{x}"
                             y="{y}"
                             yaw="{yaw}"/>
-                  <Grab movement="{equipment}"/>
+                  <Grab/>
                 </Sequence>
               </Fallback>
               <GoToPose x="{x}"
@@ -60,9 +60,7 @@
       <input_port name="yaw"/>
     </Action>
     <Action ID="Grab"
-            editable="true">
-      <output_port name="movement"/>
-    </Action>
+            editable="true"/>
     <Condition ID="HasAllItems"
                editable="true"/>
     <Action ID="Interaction"
